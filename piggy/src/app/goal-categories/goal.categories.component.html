@@ -1,0 +1,18 @@
+<div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item list-group-item-dark d-flex justify-content-between align-items-center p-2">
+      Categories
+      <div class="btn btn-sm far fa-edit"></div>
+    </li>
+    <li *ngFor="let cat of categories" 
+      (dragover)="dragOver($event, cat)"
+      (drop)="onDrop($event, cat)"
+      (dragenter)="dragEnter($event, cat)"
+      (dragleave)="dragLeave($event, cat)"
+      [class.bg-primary]="cat.dragging"
+      class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2 px-1">
+        <span [class.font-weight-bold]="cat.selected"><span class="pr-1 mr-2" [ngStyle]="{'background-color': cat.color }"> </span><i class="fas fa-check fa-xs mr-1" [hidden]="!cat.selected"></i> {{ cat.name }}</span>
+        <span class="badge badge-primary badge-pill badge-light">{{ cat.goals }}</span>
+      </li>
+  </ul>
+</div>

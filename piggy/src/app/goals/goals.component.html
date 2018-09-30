@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-md-3 h-100 bg-light py-3">
+      <div>
+        <workspace-selector></workspace-selector>
+      </div>
+      <div class="dropdown-divider border-dark my-4"></div>
+      <goal-categories></goal-categories>
+    </div>
+    <div class="col col-9">
+      <div class="ml-3 d-flex justify-content-between">
+        <h4>Goals</h4>
+        <span>
+          <span>Order by:</span>
+          <span class="badge badge-secondary mx-1">Closest</span>
+          <span class="badge badge-secondary mx-1">Furthest</span>
+          <span class="badge badge-secondary mx-1">Owning</span>
+        </span>
+      </div>
+      <div *ngFor="let d of data.goals" class="my-3" draggable="true" (dragstart)="dragStart($event, d)">
+        <goal-card [goal]="d"></goal-card>
+      </div>
+    </div>
+  </div>
+</div>

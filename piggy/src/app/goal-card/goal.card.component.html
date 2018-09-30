@@ -1,0 +1,19 @@
+<div class="card border-dark">
+  <div class="card-header py-1 d-flex justify-content-between">
+    <span><strong>{{ goal.name }}</strong></span>
+    <span>${{ goal.transactions.total }}/${{ goal.targetAmount }}</span>
+  </div>
+  <div class="p-0">
+    <div class="progress border-dark">
+      <div class="progress-bar bg-info" role="progressbar" [style.width]="getPercentComplete() + '%'">{{ getPercentComplete() }} %</div>
+    </div>
+  </div>
+  <div class="card-body p-2">
+    <div class="form-group mb-1">
+      <fieldset disabled>
+        <label>Description</label>
+        <textarea class="form-control" rows="3">{{ goal.description }}</textarea>
+      </fieldset>
+    </div>
+  </div>
+</div>
